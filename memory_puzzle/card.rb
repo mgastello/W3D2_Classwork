@@ -1,7 +1,7 @@
 class Card
 
-    def initialize(face, value)
-        @face = face
+    def initialize(value)
+        @face = false
         @value = value
     end
 
@@ -28,5 +28,5 @@ class Card
     def to_s
 
     end
-    
+
 end
