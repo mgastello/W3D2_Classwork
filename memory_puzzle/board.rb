@@ -1,4 +1,5 @@
 require "byebug"
+require_relative "card.rb"
 
 class Board
 
@@ -45,6 +46,16 @@ class Board
                     placed = true
                 end
             end
+        end
+    end
+
+    def render
+        range = (0...@grid.length).to_a
+        puts "  #{range.map(&:to_s).join(' ')}"
+        i = 0
+        @grid.each do |row|
+            puts "#{i} #{row.join(' ')}"
+            i += 1
         end
     end
 end
