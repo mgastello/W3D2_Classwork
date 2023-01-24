@@ -10,7 +10,7 @@ class Card
     end
 
     def value
-        @value
+        return @value if @face == true
     end
 
     def hide
@@ -18,10 +18,15 @@ class Card
     end
 
     def reveal
-
+        @face = true
     end
 
-    def == (card)
+    def ==(card)
+        self.value == card.value
+    end
+    
+    def to_s
 
     end
+    
 end
