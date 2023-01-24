@@ -1,3 +1,4 @@
+require "byebug"
 class Card
 
     def initialize(value)
@@ -10,7 +11,14 @@ class Card
     end
 
     def value
-        return @value if @face == true
+        @value
+    end
+    def to_s
+        if @face == true
+            return @value 
+        else
+            return ' '
+        end
     end
 
     def hide
@@ -22,7 +30,7 @@ class Card
     end
 
     def ==(card)
-        self.value == card.value
+        return self.value == card.value
     end
     
     def to_s
