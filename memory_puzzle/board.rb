@@ -17,10 +17,10 @@ class Board
         @grid[row][col] = value
     end
 
-    def populate
+    def make_card_values
         #make 2 of each card. put them in 2 different random positions in the board. keep doing that until the board is full
         letters = ('a'..'z').to_a
-        debugger
+        # debugger
         values = []
         while values.length < @grid.length * @grid.length
             value = letters.sample
@@ -31,11 +31,20 @@ class Board
         end
         values
     end
-    def place_cards(letters, position)
-        rand_row = rand(0...@grid.length)
-        rand_column = rand(0...@grid.length)
-        position = @grid[rand_row, rand_column]
-        if self[position].empty?
-            self[position] = 
+
+    def place_cards
+        letters = self.make_card_values
+        letters.each do |letter|
+            placed = false
+            while placed == false
+                rand_row = rand(0...@grid.length)
+                rand_column = rand(0...@grid.length)
+                position = [rand_row, rand_column]
+                if self[position] == ' '
+                    self[position] = letter
+                    placed = true
+                end
+            end
+        end
     end
 end
