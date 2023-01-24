@@ -13,7 +13,7 @@ class Card
     def value
         @value
     end
-    def to_s
+    def turned
         if @face == true
             return @value 
         else

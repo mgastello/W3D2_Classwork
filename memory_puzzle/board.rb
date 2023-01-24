@@ -51,18 +51,6 @@ class Board
         end
     end
 
-    # def populate
-    #     self.place_cards
-    #     (0...@grid.length).each do |row|
-    #         (0...@grid.length).each do |col|
-    #             position = [row, col]
-    #             value = self[position]
-    #             new_card = Card.new(value)
-    #             @grid[position] = new_card
-    #         end
-    #     end
-    # end
-
     def render
         range = (0...@grid.length).to_a
         puts "  #{range.map(&:to_s).join(' ')}"
@@ -71,7 +59,7 @@ class Board
             to_print = []
             to_print << i.to_s
             row.each do |card|
-                to_print << card.value
+                to_print << card.turned
             end
             i += 1
             puts to_print.join(' ')
