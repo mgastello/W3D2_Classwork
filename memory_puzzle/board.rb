@@ -65,4 +65,16 @@ class Board
             puts to_print.join(' ')
         end
     end
+
+    def won?
+        @grid.flatten.all? {|card| card.face == true}
+    end
+
+    def reveal (guessed_pos)
+        current_card = self[guessed_pos]
+        current_card.reveal
+        current_card.value
+    end
+
+
 end
